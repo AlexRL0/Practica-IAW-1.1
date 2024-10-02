@@ -12,4 +12,3 @@ apt upgrade
 #Instalamos el serdivor web Apache
 apt install apache2 -y
 
-#Habilitamos 
