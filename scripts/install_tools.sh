@@ -46,3 +46,15 @@ mysql -u root <<< "CREATE DATABASE $DB_NAME"
 mysql -u root <<< "DROP USER IF EXISTS '$DB_USER'@'%'"
 mysql -u root <<< "CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'"
 mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
+
+#---------------------------------------------------------------------------------------------------------------
+#Instalamos la herramienta goaccess
+
+apt update
+apt install goaccess -y
+
+#Creamos un directorio para los informes estadisticos
+mkdir -p /var/www/html/stats
+
+#Ejecutamos GoAccess en background
+goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
