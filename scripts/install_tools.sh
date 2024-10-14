@@ -75,3 +75,20 @@ systemctl reload apache2
 
 #Creamos el archivo de contraseñas
 sudo htpasswd -bc /etc/apache2/.htpasswd $STATS_USERNAME $STATS_PASSWORD
+
+#-------------------------------------------------------------------------------------------------------------------------
+
+#Control de acceso a un directorio con .htaccess
+cp ../conf/000-default-htaccess.conf /etc/apache2/sites-available
+
+#Deshabilitamos el virtualhost 000-default-stats.conf
+a2dissite 000-default.stats.conf
+
+#Habilitamos el nuevo virtualhost 000-default-htaccess.conf
+a2ensite 000-default-htaccess.conf
+
+#Hacemos un reload del servicio apache
+systemctl reload apache2
+
+#Copiamos el archivo .htaccess a /var/www/html/stats
+cp ../conf/.htaccess /var/www/html/stats
