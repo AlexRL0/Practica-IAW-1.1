@@ -4,7 +4,7 @@
 
 **para la instalación vamos a tener que crear la siguiente estructura de directorios y archivos:**
 
-![](../Practica-IAW-1.1/imagenes/directorio.png)
+![](imagenes/directorio.png)
 
 **Una vez creados los archivos y directorios, procedemos a la instalación de las herramientas.**
 
