@@ -89,4 +89,4 @@ cp ../php/index.php /var/www/html
 ```
 chown -R www-data:www-data /var/www/html
 ```
-> :trollface: Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.
+>  :shipit: Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.
