@@ -7,9 +7,9 @@
 ```bash
 sudo apt update
 sudo apt upgrade -y
+```
 
-set -ex
-``` 
+>set -ex
 
 ## Instalación del Servidor web Apache
 
