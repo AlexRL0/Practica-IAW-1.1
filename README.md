@@ -90,3 +90,15 @@ cp ../php/index.php /var/www/html
 chown -R www-data:www-data /var/www/html
 ```
 >:warning:Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.
+
+---
+## 2. Creación del archivo `install_tools.sh` para la automatización del proceso de instalación
+
+### Importamos el archivo de variables
+
+```
+source .env
+```
+
+> [!NOTE]  
+> Este archivo de configuración se hace para que lo que vamos a hacer mas adelante 
