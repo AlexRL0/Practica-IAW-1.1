@@ -25,17 +25,19 @@ set -ex
 
 ## 1.1 Instalación del Servidor web Apache
 
+### Paso 1: Instalamos el servidor web Apache
+
 ```
 apt install apache2 -y
 ```
 
-### Paso 1: Habilitamos el módulo rewrite
+### Paso 2: Habilitamos el módulo rewrite
 
 ```
 a2enmod rewrite
 ```
 
-### Paso 2: Copiamos el archivo de configuracion de apache
+### Paso 3: Copiamos el archivo de configuracion de apache
 
 ```
 cp ../conf/000-default.conf /etc/apache2/sites-available
@@ -46,13 +48,13 @@ cp ../conf/000-default.conf /etc/apache2/sites-available
 >![](imagenes/000-default.conf.png)
 
 
-### Paso 3: Instalamos PHP y algunos módulos para Apache y MySQL
+### Paso 4: Instalamos PHP y algunos módulos para Apache y MySQL
 
 ```
 apt install php libapache2-mod-php php-mysql -y
 ```
 
-### Paso 4: Reiniciamos el servicio de apache para aplicar los cambios
+### Paso 5: Reiniciamos el servicio de apache para aplicar los cambios
 
 ```
 systemctl restart apache2
@@ -117,7 +119,7 @@ sudo apt upgrade -y
 set -ex
 ```
 
-## Configuramos las respuestas para la instalación de phpmyadmin
+## 2.1 Configuramos las respuestas para la instalación de phpmyadmin
 
 ```bash
 echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf-set-selections
@@ -131,23 +133,47 @@ echo "phpmyadmin phpmyadmin/app-password-confirm password $PHPMYADMIN_APP_PASSWO
 
 >Esto se hace para que a la hora de instalar el phpmyadmin automatice todos esos procesos que se tendrian que hacer a mano como la creación de un usuario.
 
-## 1. Instalamos phpMyAdmin
+## 2.2 Instalacion de phpMyAdmin
+
+### Paso 1: Instalamos phpMyAdmin
 
 ```
 apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
 ```
 
-### 1.2 Creamos una base de datos de ejemplo
+### Paso 2: Creamos una base de datos de ejemplo
 
 ```
 mysql -u root <<< "DROP DATABASE IF EXISTS $DB_NAME"
 mysql -u root <<< "CREATE DATABASE $DB_NAME"
 ```
 
-### 1.3 Creamos un usuario para la base de datos de ejemplo
+### Paso 3: Creamos un usuario para la base de datos de ejemplo
 
 ```
 mysql -u root <<< "DROP USER IF EXISTS '$DB_USER'@'%'"
 mysql -u root <<< "CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'"
 mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
+```
+
+## 2.3 Instalacion de Adminer
+
+### Paso 1: Creamos un directorio para adminer
+
+```
+mkdir -p /var/www/html/adminer
+```
+
+### Paso 2: Instalamos Adminer
+
+```
+wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php -P /var/www/html/adminer
+```
+
+> Con el comando `wget` nos descargamos el archivo de adminer y con el parámetro `-p` le indicamos la ruta donde lo queremos guardar
+
+### Paso 3: Renombramos el nombre del script de Adminer
+
+```
+mv /var/www/html/adminer/adminer-4.8.1-mysql.php /var/www/html/adminer/index.php
 ```
