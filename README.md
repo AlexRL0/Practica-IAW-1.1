@@ -41,7 +41,7 @@ a2enmod rewrite
 cp ../conf/000-default.conf /etc/apache2/sites-available
 ```
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > El archivo `000-default.conf` tiene que quedar como en la imagen
 >![](imagenes/directorio.png)
 
