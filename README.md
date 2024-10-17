@@ -72,7 +72,7 @@ apt install mysql-server -y
 cp ../php/index.php /var/www/html
 ```
 
-> [!TIP]  
+> [!NOTE]  
 > Para esto, hace falta un archivo `index.php` y que contenga el siguiente contenido:  
 > "<?php
 >
