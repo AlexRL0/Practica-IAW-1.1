@@ -210,7 +210,7 @@ mkdir -p /var/www/html/stats
 goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
 ```
 
-> Esto lo hacemos para generar los informes en segundo plano. Para ejecutarlo en segundo plano podemos utilizar el parámetro `--daemonize`
+> **Esto lo hacemos para generar los informes en segundo plano. Para ejecutarlo en segundo plano podemos utilizar el parámetro `--daemonize`**
 
 ---
 
