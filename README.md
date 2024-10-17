@@ -10,9 +10,9 @@
 
 ## Instalación de Apache HTTP Server, PHP y MySQL Server en Ubuntu Server
 
-## 1. Archivo `install_lamp.sh` para la automatización del proceso de instalación
+## 1. Creación del archivo `install_lamp.sh` para la automatización del proceso de instalación
 
-### Paso 1: Actualizamos el sistema y mostramos los comandos que se van ejecutando. 
+### Actualizamos el sistema y mostramos los comandos que se van ejecutando. 
 
 ```
 sudo apt update
@@ -23,27 +23,45 @@ sudo apt upgrade -y
 set -ex
 ```
 
-## Instalación del Servidor web Apache
+## 1.1 Instalación del Servidor web Apache
 
 ```
 apt install apache2 -y
 ```
 
-### Paso 2: Habilitamos el módulo rewrite
+### Paso 1: Habilitamos el módulo rewrite
 
 ```
 a2enmod rewrite
 ```
 
-### Paso 3: Copiamos el archivo de configuracion de apache
+### Paso 2: Copiamos el archivo de configuracion de apache
 
 ```
 cp ../conf/000-default.conf /etc/apache2/sites-available
 ```
 
 > [!IMPORTANT]  
-> El archivo `000-default.conf` tiene que quedar como en la imagen
->![](imagenes/directorio.png)
+> El archivo `000-default.conf` tiene que quedar como en la imagen:
+>![](imagenes/000-default.conf.png)
 
 
-### Paso 4: Instalamos PHPMyAdmin
+### Paso 3: Instalamos PHP y algunos módulos para Apache y MySQL
+
+```
+apt install php libapache2-mod-php php-mysql -y
+```
+
+### Paso 4: Reiniciamos el servicio de apache para aplicar los cambios
+
+```
+systemctl restart apache2
+```
+
+## 1.2 Instalación de MySQL Server
+
+### Paso 5: Instalamos MYSQL server
+
+```
+apt install mysql-server -y
+```
