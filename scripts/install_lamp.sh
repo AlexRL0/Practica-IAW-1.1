@@ -9,7 +9,7 @@ apt update
 #Actualizamos los paquetes
 apt upgrade -y
 
-#Instalamos el serdivor web Apache
+#Instalamos el servidor web Apache
 apt install apache2 -y
 
 #Habilitamos el módulo rewrite
