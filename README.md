@@ -60,13 +60,13 @@ systemctl restart apache2
 
 ## 1.2 Instalación de MySQL Server
 
-### Paso 5: Instalamos MYSQL server
+### Paso 1: Instalamos MYSQL server
 
 ```
 apt install mysql-server -y
 ```
 
-### Paso 6: Copiamos el archivo de prueba de PHP en /var/www/html
+### Paso 2: Copiamos el archivo de prueba de PHP en /var/www/html
 
 ```
 cp ../php/index.php /var/www/html
@@ -84,7 +84,7 @@ cp ../php/index.php /var/www/html
 > [!IMPORTANT]  
 > Esto se hace debido a que en el archivo de configuración `000-default.conf` pusimos una línea que hace que priorice los archivos php frente a los html. Esa línea es: **`DirectoryIndex index.php index.html`**
 
-### Paso 7: Modificamos el propietario y el grupo del archivo index.php
+### Paso 3: Modificamos el propietario y el grupo del archivo index.php
 
 ```
 chown -R www-data:www-data /var/www/html
