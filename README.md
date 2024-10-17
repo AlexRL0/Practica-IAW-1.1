@@ -65,3 +65,22 @@ systemctl restart apache2
 ```
 apt install mysql-server -y
 ```
+
+### Paso 6: Copiamos el archivo de prueba de PHP en /var/www/html
+
+```
+cp ../php/index.php /var/www/html
+```
+
+> [!TIP]  
+> Para esto, hace falta un archivo `index.php` y que contenga el siguiente contenido:  
+> "<?php
+>
+>phpinfo();
+>
+>?>"
+
+
+> [!IMPORTANT]  
+> Esto se hace debido a que en el archivo de configuración `000-default.conf` pusimos una línea que hace que priorice los archivos php frente a los html. Esa línea es:   
+**`DirectoryIndex index.php index.html`**
