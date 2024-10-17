@@ -9,7 +9,9 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
->set -ex
+```bash
+set -ex
+```
 
 ## Instalación del Servidor web Apache
 
