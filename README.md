@@ -177,3 +177,42 @@ wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mys
 ```
 mv /var/www/html/adminer/adminer-4.8.1-mysql.php /var/www/html/adminer/index.php
 ```
+
+> [!TIP]  
+> Renombramos el directorio ya que el nombre que tiene es muy largo y lo cambiamos a uno mas común con el archivo del `index.php` para que el servidor apache lo pueda reconocer más fácil.
+
+### Paso 4. Modificamos el propietario y el grupo del archivo
+
+```
+chown -R www-data:www-data /var/www/html/adminer
+```
+
+> Una vez más tenemos que darle permisos al grupo y usuario de apache para que pueda leer el archivo.
+
+## 2.4 Instalacion de la herramienta GoAcces
+
+### Paso 1. Instalamos la herramienta goaccess
+
+```
+apt update
+apt install goaccess -y
+```
+
+### Paso 2. Creamos un directorio para los informes estadisticos
+
+```
+mkdir -p /var/www/html/stats
+```
+
+### Paso 3. Ejecutamos GoAccess en background
+
+```
+goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
+```
+
+> Esto lo hacemos para generar los informes en segundo plano. Para ejecutarlo en segundo plano podemos utilizar el parámetro `--daemonize`
+
+---
+
+## 2. Control de acceso a un directorio con autenticación básica
+
