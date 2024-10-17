@@ -91,7 +91,7 @@ cp ../php/index.php /var/www/html
 ```
 chown -R www-data:www-data /var/www/html
 ```
->:warning:Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.
+**:warning:Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.**
 
 ---
 ## 2. Creación del archivo `install_tools.sh` para la automatización del proceso de instalación
@@ -131,7 +131,7 @@ echo "phpmyadmin phpmyadmin/mysql/app-pass password $PHPMYADMIN_APP_PASSWORD" | 
 echo "phpmyadmin phpmyadmin/app-password-confirm password $PHPMYADMIN_APP_PASSWORD" | debconf-set-selections
 ```
 
->Esto se hace para que a la hora de instalar el phpmyadmin automatice todos esos procesos que se tendrian que hacer a mano como la creación de un usuario.
+**Esto se hace para que a la hora de instalar el phpmyadmin automatice todos esos procesos que se tendrian que hacer a mano como la creación de un usuario.**
 
 ## 2.2 Instalacion de phpMyAdmin
 
@@ -170,7 +170,7 @@ mkdir -p /var/www/html/adminer
 wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1-mysql.php -P /var/www/html/adminer
 ```
 
-> Con el comando `wget` nos descargamos el archivo de adminer y con el parámetro `-p` le indicamos la ruta donde lo queremos guardar
+**Con el comando `wget` nos descargamos el archivo de adminer y con el parámetro `-p` le indicamos la ruta donde lo queremos guardar.**
 
 ### Paso 3: Renombramos el nombre del script de Adminer
 
@@ -187,7 +187,7 @@ mv /var/www/html/adminer/adminer-4.8.1-mysql.php /var/www/html/adminer/index.php
 chown -R www-data:www-data /var/www/html/adminer
 ```
 
-> Una vez más tenemos que darle permisos al grupo y usuario de apache para que pueda leer el archivo.
+**Una vez más tenemos que darle permisos al grupo y usuario de apache para que pueda leer el archivo.**
 
 ## 2.4 Instalacion de la herramienta GoAcces
 
@@ -210,7 +210,7 @@ mkdir -p /var/www/html/stats
 goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-format=COMBINED --real-time-html --daemonize
 ```
 
-> **Esto lo hacemos para generar los informes en segundo plano. Para ejecutarlo en segundo plano podemos utilizar el parámetro `--daemonize`**
+**Esto lo hacemos para generar los informes en segundo plano. Para ejecutarlo en segundo plano podemos utilizar el parámetro `--daemonize`**
 
 ---
 
