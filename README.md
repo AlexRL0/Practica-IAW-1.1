@@ -42,6 +42,8 @@ cp ../conf/000-default.conf /etc/apache2/sites-available
 ```
 
 > [!NOTE]  
->  as
+> El archivo `000-default.conf` tiene que quedar como en la imagen
+>![](imagenes/directorio.png)
+
 
 ### Paso 4: Instalamos PHPMyAdmin
