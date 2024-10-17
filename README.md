@@ -83,3 +83,10 @@ cp ../php/index.php /var/www/html
 
 > [!IMPORTANT]  
 > Esto se hace debido a que en el archivo de configuración `000-default.conf` pusimos una línea que hace que priorice los archivos php frente a los html. Esa línea es: **`DirectoryIndex index.php index.html`**
+
+### Paso 7: Modificamos el propietario y el grupo del archivo index.php
+
+```
+chown -R www-data:www-data /var/www/html
+```
+> :trollface: Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.
