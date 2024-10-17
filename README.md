@@ -216,3 +216,8 @@ goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-for
 
 ## 2. Control de acceso a un directorio con autenticación básica
 
+```
+cp ../conf/000-default.stats.conf /etc/apache2/sites-available
+```
+> [!IMPORTANT]  
+> Tenemos que hacer otro archivo de configuración llamado `000-default.stats.conf` y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.
