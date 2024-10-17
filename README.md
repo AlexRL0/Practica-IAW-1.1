@@ -82,5 +82,4 @@ cp ../php/index.php /var/www/html
 
 
 > [!IMPORTANT]  
-> Esto se hace debido a que en el archivo de configuración `000-default.conf` pusimos una línea que hace que priorice los archivos php frente a los html. Esa línea es:   
-**`DirectoryIndex index.php index.html`**
+> Esto se hace debido a que en el archivo de configuración `000-default.conf` pusimos una línea que hace que priorice los archivos php frente a los html. Esa línea es: **`DirectoryIndex index.php index.html`**
