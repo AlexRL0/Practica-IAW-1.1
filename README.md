@@ -41,7 +41,7 @@ a2enmod rewrite
 cp ../conf/000-default.conf /etc/apache2/sites-available
 ```
 
->[!NOTE]  
->  
+> [!NOTE]  
+>  as
 
 ### Paso 4: Instalamos PHPMyAdmin
