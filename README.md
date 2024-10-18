@@ -216,7 +216,7 @@ goaccess /var/log/apache2/access.log -o /var/www/html/stats/index.html --log-for
 
 ## 3. Control de acceso a un directorio con autenticación básica
 
-### Paso 1: Copiamos el archivo de configuracion de apache
+### Paso 1: Copiamos el archivo de configuracion de stats
 
 ```
 cp ../conf/000-default.stats.conf /etc/apache2/sites-available
@@ -226,3 +226,40 @@ cp ../conf/000-default.stats.conf /etc/apache2/sites-available
 > Tenemos que hacer otro archivo de configuración llamado `000-default.stats.conf` y copiarlo en los sitios disponibles de apache para que lo podamos habilitar más tarde.  
 El archivo `000-default.stats.conf` tiene que quedar como en la imagen:
 ![](imagenes/000-default.stats.conf.png)
+
+### Paso 2: Deshabilitamos el virtualhost que hay por defecto
+
+```
+a2dissite 000-default.conf
+```
+
+**Esto lo hacemos para poder habilitar el otro archivo que hemos copiado, es decir, el `000-default.stats.conf`**.
+
+### Paso 3: Habilitamos el nuevo virtualhost
+
+```
+a2ensite 000-default.stats.conf
+```
+
+### Paso 4: Hacemos un reload al servicio apache
+
+```
+systemctl reload apache2
+```
+
+### Paso 5: Creamos el archivo de contraseñas
+
+```
+htpasswd -bc /etc/apache2/.htpasswd $STATS_USERNAME $STATS_PASSWORD
+```
+
+**Esto se hace para que sea más seguro y pida un usuario y contraseña a la hora de entrar a la página web**
+
+## 4. Control de acceso a un directorio con `.htaccess`
+
+### Paso 1: Copiamos el archivo de configuracion de `.htaccess`
+
+```
+cp ../conf/000-default-htaccess.conf /etc/apache2/sites-available
+```
+
