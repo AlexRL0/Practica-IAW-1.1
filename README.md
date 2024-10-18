@@ -97,6 +97,10 @@ chown -R www-data:www-data /var/www/html
 
 ![](imagenes/index.php.png)
 
+### Paso 5: comprobación de que el servicio `MySQLServer` funciona
+
+![](imagenes/mysqlserver.png)
+
 ---
 ## 2. Creación del archivo `install_tools.sh` para la automatización del proceso de instalación
 
@@ -162,7 +166,7 @@ mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
 
 ### Paso 4: comprobación de que la página `phpMyAdmin` funciona
 
-![](imagenes/index.php.png)
+![](imagenes/phpmyadmin.png)
 
 
 ## 2.3 Instalacion de Adminer
@@ -197,6 +201,10 @@ chown -R www-data:www-data /var/www/html/adminer
 ```
 
 **Una vez más tenemos que darle permisos al grupo y usuario de apache para que pueda leer el archivo.**
+
+### Paso 5: comprobación de que la página `adminer` funciona
+
+![](imagenes/adminer.png)
 
 ## 2.4 Instalacion de la herramienta GoAcces
 
