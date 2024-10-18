@@ -93,6 +93,10 @@ chown -R www-data:www-data /var/www/html
 ```
 **:warning:Lo modificamos ya que el grupo www-data pertenece al usuario con el que se ejecuta el servicio Apache y necesita permisos para ver, leer y escribir dentro de ese directorio.**
 
+### Paso 4: comprobación de que la página `index.php` funciona
+
+![](imagenes/index.php.png)
+
 ---
 ## 2. Creación del archivo `install_tools.sh` para la automatización del proceso de instalación
 
@@ -155,6 +159,11 @@ mysql -u root <<< "DROP USER IF EXISTS '$DB_USER'@'%'"
 mysql -u root <<< "CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD'"
 mysql -u root <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%'"
 ```
+
+### Paso 4: comprobación de que la página `phpMyAdmin` funciona
+
+![](imagenes/index.php.png)
+
 
 ## 2.3 Instalacion de Adminer
 
