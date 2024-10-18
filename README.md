@@ -315,3 +315,11 @@ cp ../conf/.htaccess /var/www/html/stats
 > Tenemos que hacer un archivo de configuración llamado `.htaccess` y copiarlo en la ruta de `stats` para que coja la configuración del archivo y al entrar a la web nos pida las credenciales necesarias.  
 El archivo `.htaccess` tiene que quedar como en la imagen:
 ![](imagenes/htaccess.png)
+
+### Paso 6: comprobación de que la autenticación funciona
+
+![](imagenes/stats.png)
+
+### Paso 7: comprobación de que la página funciona
+
+![](imagenes/stats2.png)
